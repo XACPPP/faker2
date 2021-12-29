@@ -39,7 +39,13 @@ $.innerKeyWords =
         "女用", "神油", "足力健", "老年", "老人",
         "宠物", "饲料", "丝袜", "黑丝", "磨脚",
         "脚皮", "除臭", "性感", "内裤", "跳蛋",
-        "安全套", "龟头", "阴道", "阴部"
+        "安全套", "龟头", "阴道", "阴部",
+        "软件", "电话卡", "奶粉", "手机壳", "保护膜", 
+        "水晶", "坠", "玉", "手串", "牙刷头", "门票", 
+        "自慰", "药", "成人", "润滑", "振动棒", "钢化膜", "喷雾", "药", 
+        "软壳", "卡套", "私处", "乳球", 
+        "卫生巾", "飞机杯", "跳蛋", "情趣", "保健",
+        "喷雾", "喷剂", "宠物", "狗粮", "美缝", "看房","手机卡"
     ]
 //下面很重要，遇到问题请把下面注释看一遍再来问
 let args_xh = {
@@ -50,7 +56,7 @@ let args_xh = {
      * C商品原价99元，试用价1元，如果下面设置为50，那么C商品将会被加入到待提交的试用组
      * 默认为0
      * */
-    jdPrice: process.env.JD_TRY_PRICE * 1 || 20,
+    jdPrice: process.env.JD_TRY_PRICE * 1 || 79,
     /*
      * 获取试用商品类型，默认为1，原来不是数组形式，我以为就只有几个tab，结果后面还有我服了
      * 1 - 精选
@@ -87,25 +93,25 @@ let args_xh = {
      * 若只提供5分试用资格，当前设置为10，则不会申请
      * 可设置环境变量：JD_TRY_MINSUPPLYNUM
      * */
-    minSupplyNum: process.env.JD_TRY_MINSUPPLYNUM * 1 || 1,
+    minSupplyNum: process.env.JD_TRY_MINSUPPLYNUM * 1 || 5,
     /*
      * 过滤大于设定值的已申请人数，例如下面设置的1000，A商品已经有1001人申请了，则A商品不会进行申请，会被跳过
      * 可设置环境变量：JD_TRY_APPLYNUMFILTER
      * */
-    applyNumFilter: process.env.JD_TRY_APPLYNUMFILTER * 1 || 10000,
+    applyNumFilter: process.env.JD_TRY_APPLYNUMFILTER * 1 || 1000000,
     /*
      * 商品试用之间和获取商品之间的间隔, 单位：毫秒(1秒=1000毫秒)
      * 可设置环境变量：JD_TRY_APPLYINTERVAL
      * 默认为3000，也就是3秒
      * */
-    applyInterval: process.env.JD_TRY_APPLYINTERVAL * 1 || 3000,//每个账号提交间隔调大，防止黑IP
+    applyInterval: process.env.JD_TRY_APPLYINTERVAL * 1 || 5000,//每个账号提交间隔调大，防止黑IP
     /*
      * 商品数组的最大长度，通俗来说就是即将申请的商品队列长度
      * 例如设置为20，当第一次获取后获得12件，过滤后剩下5件，将会进行第二次获取，过滤后加上第一次剩余件数
      * 例如是18件，将会进行第三次获取，直到过滤完毕后为20件才会停止，不建议设置太大
      * 可设置环境变量：JD_TRY_MAXLENGTH
      * */
-    maxLength: process.env.JD_TRY_MAXLENGTH * 1 || 3,
+    maxLength: process.env.JD_TRY_MAXLENGTH * 1 || 370,
     /*
      * 过滤种草官类试用，某些试用商品是专属官专属，考虑到部分账号不是种草官账号
      * 例如A商品是种草官专属试用商品，下面设置为true，而你又不是种草官账号，那A商品将不会被添加到待提交试用组
